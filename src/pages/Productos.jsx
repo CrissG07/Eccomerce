@@ -1,7 +1,9 @@
+import ProductList from "../components/ProductList";
 
 export const Productos = () => {
     return (
-      <div>productos</div>
+      <ProductList />
+
     )
   }
   export default Productos;
