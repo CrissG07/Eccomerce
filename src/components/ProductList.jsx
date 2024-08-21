@@ -1,5 +1,5 @@
-import React from 'react';
-import { useCart } from './CartContext';
+/* eslint-disable react/prop-types */
+import { useCart } from '../context/CartContext';
 
 const ProductList = ({ products }) => {
     const { addToCart } = useCart();
@@ -17,4 +17,4 @@ const ProductList = ({ products }) => {
     );
 };
 
-export default ProductList;
+export default ProductList;
