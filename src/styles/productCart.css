@@ -1,0 +1,76 @@
+.product-list {
+    display: flex; /* Cambiado a flex para activar el comportamiento del flexbox */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea si el espacio no es suficiente */
+    margin: 0 auto; /* Centra el contenedor de la lista horizontalmente */
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    padding: 20px;
+    margin-left:20px;
+    width: 90%;
+}
+
+.product-card {
+    width: 60%; /* Ajusta el ancho de cada tarjeta para que quepan 4 en una fila */
+    margin-bottom: 20px; /* Espacio entre las filas de productos */
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin: 80px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centra el contenido dentro de la tarjeta */
+}
+
+.card-img {
+    background-color: #ffcaa6;
+    height: 40%;
+    width: 100%;
+    border-radius: 0.5rem;
+    transition: 0.3s ease;
+}
+
+.card-info {
+    padding-top: 10%;
+}
+
+.product-card h3.text-title {
+    font-weight: 900;
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.text-body {
+    font-size: 0.9em;
+    padding-bottom: 10px;
+}
+
+.card-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.card-button {
+    border: 1px solid #252525;
+    display: flex;
+    padding: 0.3em;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: 0.3s ease-in-out;
+}
+
+.card-button:hover {
+    border: 1px solid #ffcaa6;
+    background-color: #ffcaa6;
+}
+
+.card-img:hover {
+    transform: translateY(-25%);
+    box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+}
+
+.svg-icon {
+    width: 20px;
+    height: 20px;
+}

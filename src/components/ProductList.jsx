@@ -1,22 +1,24 @@
 /* eslint-disable react/prop-types */
-import { useCart } from '../context/CartContext';
+import  { useState } from 'react';
+import ProductCard from '../components/ProductCard';
+import ProductDetail from '../components/ProductDetail';
+import '../styles/ProductDetail.css'
 
-const ProductList = ({ products = [] }) => { // Default to empty array
-    const { addToCart } = useCart();
+const ProductList = ({ products }) => {
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
     return (
         <div>
-            {products.length > 0 ? (
-                products.map((product) => (
-                    <div key={product.id}>
-                        <h3>{product.name}</h3>
-                        <p>{product.price}</p>
-                        <button onClick={() => addToCart(product)}>Add to Cart</button>
+            <div className="product-list">
+                {products.map((product) => (
+                    <div key={product.id} onClick={() => setSelectedProduct(product)}>
+                        <ProductCard product={product} />
                     </div>
-                ))
-            ) : (
-                <p>No products available.</p>
-            )}
+                ))}
+            </div>
+            <div>
+                <ProductDetail product={selectedProduct} />
+            </div>
         </div>
     );
 };

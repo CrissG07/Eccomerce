@@ -1,20 +1,17 @@
-import '../styles/ProductDetail.css'
+/* eslint-disable react/prop-types */
+import '../styles/productDetail.css'
 
-export const ProductDetail = () => {
-  return (
-    <>
-      <div className="product-detail">
-        <div className='title'>
-          <h2>Detalles del Producto</h2>
+const ProductDetail = ({ product }) => {
+    if (!product) return <p>Seleccione un producto para ver los detalles</p>;
+
+    return (
+        <div className="product-detail">
+            <h2 className="title">{product.name}</h2>
+            <p className="info">Description: {product.description}</p>
+            <p className="precio">Price: ${product.price.toFixed(2)}</p>
+            <img src={product.imageUrl} alt={product.name} />
         </div>
-        <div className="info">
-          <p>Aquí va la descripción del producto que va a hacer Cuervo</p>
-        </div>
-        <div className='precio'>
-          <b>Precio: $1000</b>
-        </div>
-      </div>
-    </>
-  )
-}
+    );
+};
+
 export default ProductDetail;
