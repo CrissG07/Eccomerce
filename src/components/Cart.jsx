@@ -1,8 +1,27 @@
+import { useState } from 'react';
+import { useCart } from '../context/CartContext';// Importa el contexto del carrito
 import '../styles/cart.css';
-import { useCart } from '../context/CartContext'; // Importa el contexto del carrito
+import ConfirmationModal from '../components/ConfirmationModal';
 
 export const Cart = () => {
-    const { cartItems, removeFromCart, updateCartItemQuantity, getCartTotal } = useCart(); // Obtén las funciones necesarias del contexto
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isPurchaseConfirmed, setIsPurchaseConfirmed] = useState(false);
+    const { cartItems, removeFromCart, updateCartItemQuantity, getCartTotal } = useCart();
+
+    const handleProceedToCheckout = () => {
+        setIsModalOpen(true); // Abre el modal cuando se hace clic en "Proceder a la Compra"
+    };
+
+    const handleConfirmPurchase = () => {
+        setIsModalOpen(false);
+        setIsPurchaseConfirmed(true); // Marca la compra como confirmada
+        alert("Compra realizada");
+        window.location.href = '/products'; // Redirige a la lista de productos
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false); // Cierra el modal sin confirmar la compra
+    };
 
     return (
         <div className="carrito">
@@ -16,7 +35,11 @@ export const Cart = () => {
                             <p>Precio: ${item.price}</p>
                             <div className="cantidad">
                                 <button onClick={() => updateCartItemQuantity(item.id, item.quantity - 1)}>-</button>
-                                <input type="number" value={item.quantity} onChange={(e) => updateCartItemQuantity(item.id, parseInt(e.target.value))} />
+                                <input 
+                                    type="number" 
+                                    value={item.quantity} 
+                                    onChange={(e) => updateCartItemQuantity(item.id, parseInt(e.target.value))} 
+                                />
                                 <button onClick={() => updateCartItemQuantity(item.id, item.quantity + 1)}>+</button>
                             </div>
                             <button className="eliminar" onClick={() => removeFromCart(item.id)}>Eliminar</button>
@@ -26,12 +49,20 @@ export const Cart = () => {
             </div>
             <div className="carrito-total">
                 <h3>Total: ${getCartTotal()}</h3>
-                <button className="comprar"><span>Proceder a la Compra</span></button>
+                <button className="comprar" onClick={handleProceedToCheckout}>
+                    <span>Proceder a la Compra</span>
+                </button>
             </div>
+
+            <ConfirmationModal 
+                isOpen={isModalOpen} 
+                onClose={handleCloseModal} 
+                onConfirm={handleConfirmPurchase} 
+            />
+
+            {isPurchaseConfirmed && <p>Compra realizada</p>} {/* Mensaje opcional */}
         </div>
     );
 };
-
-//Modal//
 
 export default Cart;
