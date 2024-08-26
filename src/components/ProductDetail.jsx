@@ -7,9 +7,7 @@ const ProductDetail = ({ product }) => {
     return (
         <div className="product-detail">
             <h2 className="title">{product.name}</h2>
-            <p className="info">Description: {product.description}</p>
-            <p className="precio">Price: ${product.price.toFixed(2)}</p>
-            <img src={product.imageUrl} alt={product.name} />
+            <p className="info">Descripción: {product.description}</p>
         </div>
     );
 };
