@@ -1,62 +1,42 @@
 .product-list {
-    display: flex; /* Cambiado a flex para activar el comportamiento del flexbox */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea si el espacio no es suficiente */
-    margin: 0 auto; /* Centra el contenedor de la lista horizontalmente */
-    max-width: 1200px; /* Ancho máximo del contenedor */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre las tarjetas */
+    justify-content: space-between; /* Distribución uniforme */
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    margin-left:10px;
-    width: 90%;
 }
 
 .product-card {
-    width: 60%; /* Ajusta el ancho de cada tarjeta para que quepan 4 en una fila */
-    margin-bottom: 20px; /* Espacio entre las filas de productos */
+    flex: 1 1 23%; /* Ajusta el tamaño para que quepan 4 por fila */
+    min-width: 220px; /* Ancho mínimo para que no se encojan demasiado */
+    max-width: 250px; /* Ancho máximo para un diseño más consistente */
     background-color: #fff;
     padding: 15px;
-    margin: 80px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgb(0, 0, 0);
-    text-align: center; /* Centra el contenido dentro de la tarjeta */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
 }
 
 .card-img {
-    background-color: #1E90FF;
-    height: 40%;
     width: 100%;
-    border-radius: 0.5rem;
-    transition: 0.3s ease;
+    height: 150px; /* Ajuste de altura */
+    object-fit: cover; /* Asegura que la imagen se recorte adecuadamente */
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
-
-.bx-info-circle{
-    font-size: 25px; /* Aumenta el tamaño del ícono */
-    margin-left: 30px; /* Mueve el ícono un poco hacia la derecha */
-    color: #000; /* Cambia el color del ícono */
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
-}
-
-.bx-cart{
-    color: #000;
-}
-
 
 .card-info {
-    padding-top: 10%;
-}
-
-.product-card h3.text-title {
-    font-weight: 900;
-    font-size: 1.2em;
-    line-height: 1.5;
-}
-
-.text-body {
-    font-size: 0.9em;
-    padding-bottom: 10px;
+    margin-top: 10px;
 }
 
 .card-footer {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -74,16 +54,21 @@
 }
 
 .card-button:hover {
-    border: 1px solid #1E90FF;
+    border-color: #1E90FF;
     background-color: #1E90FF;
+    color: #fff;
 }
 
-.card-img:hover {
-    transform: translateY(-25%);
-    box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+.bx-info-circle {
+    font-size: 25px;
+    color: #000;
+    transition: transform 0.3s ease-in-out;
 }
 
-.svg-icon {
-    width: 20px;
-    height: 20px;
+.bx-info-circle:hover {
+    transform: scale(1.2);
+}
+
+.bx-cart {
+    color: #000;
 }

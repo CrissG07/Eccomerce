@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
                 <p className="text-body">{product.description}</p>
             </div>
             <div className="card-footer">
-                <span className="text-title">${product.price.toFixed(2)}</span>
+            <span className="text-title">${product.price.toLocaleString('de-DE')}</span>
                 <div onClick={handleInfoClick} style={{ cursor: 'pointer' }}>
                     <i className='bx bx-info-circle'></i>
                 </div>
