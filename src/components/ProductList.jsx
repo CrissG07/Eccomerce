@@ -1,3 +1,4 @@
+
 import { useCart } from '../context/CartContext'; // Importa el contexto del carrito
 import { useState } from 'react';
 import ProductCard from '../components/ProductCard';
@@ -13,11 +14,13 @@ const ProductList = ({ products }) => {
         setSelectedProduct(product); // Muestra el detalle del producto seleccionado
     };
 
+
     return (
         <div>
             <div className="product-list">
                 {products.map((product) => (
                     <div key={product.id}>
+
                         <ProductCard 
                             product={product} 
                             onClick={() => handleAddToCart(product)} // Asegura que el clic se registre
