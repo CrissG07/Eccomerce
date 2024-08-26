@@ -17,14 +17,14 @@ export const CartProvider = ({ children }) => {
         setCartItems((prevItems) => {
             const itemIndex = prevItems.findIndex((item) => item.id === product.id);
             if (itemIndex >= 0) {
-                const updatedItems = [...prevItems];
-                updatedItems[itemIndex].quantity += 1;
-                return updatedItems;
+                // Si el producto ya existe, simplemente retorna el carrito sin cambios
+                return prevItems;
             } else {
+                // Si no existe, lo agrega al carrito con cantidad 1
                 return [...prevItems, { ...product, quantity: 1 }];
             }
         });
-    };
+    };  
 
     // Función para eliminar un producto del carrito
     const removeFromCart = (productId) => {
