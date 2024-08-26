@@ -32,7 +32,7 @@ export const Cart = () => {
                         <img src={item.image} alt={item.name} />
                         <div className="carrito-item-details">
                             <h3>{item.name}</h3>
-                            <p>Precio: ${item.price}</p>
+                            <p>Precio: ${item.price.toLocaleString('de-DE')}</p>
                             <div className="cantidad">
                                 <button onClick={() => updateCartItemQuantity(item.id, item.quantity - 1)}>-</button>
                                 <input 
@@ -48,7 +48,7 @@ export const Cart = () => {
                 ))}
             </div>
             <div className="carrito-total">
-                <h3>Total: ${getCartTotal()}</h3>
+                <h3>Total: ${getCartTotal().toLocaleString('de-DE')}</h3>
                 <button className="comprar" onClick={handleProceedToCheckout}>
                     <span>Proceder a la Compra</span>
                 </button>
