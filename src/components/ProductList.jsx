@@ -6,6 +6,7 @@ import ProductCard from '../components/ProductCard';
 import ProductDetail from '../components/ProductDetail';
 import '../styles/ProductDetail.css';
 
+
 const ProductList = ({ products }) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const { addToCart } = useCart(); // Obtén la función para agregar al carrito

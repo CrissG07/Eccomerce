@@ -1,6 +1,6 @@
 
 
-const [products, setProducts] = useState([
+export const myProductList = [
 
     { id: 1, name: ' Arroz Diana', price: 2.500, categoria:'comida', image: 'https://tse4.mm.bing.net/th?id=OIP.r-CpC3TYYSlHCPTS-QRkhgHaHa&pid=Api&P=0&h=180' },
     { id: 2, name: 'Leche', price: 3.600,categoria:'comida', image: 'https://tse4.mm.bing.net/th?id=OIP.NDeCRNYDtVHhKATvSNRoswHaHa&pid=Api&P=0&h=180' },
@@ -58,4 +58,6 @@ const [products, setProducts] = useState([
         { id: 25, name: 'Champú para Perros', price: 6.99,categoria:'mascotas', image: 'https://example.com/dog-shampoo.jpg' },
         
   
-  ]);
+  ];
+
+  export default myProductList;
