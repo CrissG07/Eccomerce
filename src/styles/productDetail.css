@@ -48,3 +48,28 @@
     color: #000;
     margin-top: 0; /* Alinea la descripción con el margen superior */
 }
+
+.related-products-list {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.related-product-card {
+    width: 150px;
+    text-align: center;
+}
+
+.related-product-img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.related-product-name {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.related-product-price {
+    color: #1E90FF;
+}
