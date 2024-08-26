@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 
 import { useCart } from '../context/CartContext'; // Importa el contexto del carrito
 import { useState } from 'react';
