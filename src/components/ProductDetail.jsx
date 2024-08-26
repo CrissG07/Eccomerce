@@ -2,7 +2,6 @@
 import '../styles/productDetail.css'
 
 const ProductDetail = ({ product }) => {
-    if (!product) return <p>Seleccione un producto para ver los detalles</p>;
 
     return (
         <div className="product-detail">
