@@ -9,8 +9,8 @@ const ConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
             <div className="modal-content">
                 <h2>¿Deseas confirmar la compra?</h2>
                 <div className="modal-buttons">
-                    <button onClick={onConfirm}>Sí</button>
-                    <button onClick={onClose}>No</button>
+                    <button className='btn1' onClick={onConfirm}>Sí</button>
+                    <button className='btn2' onClick={onClose}>No</button>
                 </div>
             </div>
         </div>
