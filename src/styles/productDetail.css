@@ -8,6 +8,36 @@
     text-align: left; /* Alinea el contenido a la izquierda */
 }
 
+.section {
+    background-color: rgb(187, 186, 186);
+    width: 100%;
+    height: 40px;
+}
+
+.categoria {
+    display: flex;
+    position: reative;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+    list-style-type: none;
+}
+
+.list {
+    padding: 10px 10px;
+}
+
+.list:hover {
+    background-color: #2F4F4F;
+    border-radius: 10px;
+}
+
+.link {
+    text-decoration: none;
+    color: #fff;
+    margin: 2%;
+}
+
 .title {
     text-align: center ;
     color: #000;
