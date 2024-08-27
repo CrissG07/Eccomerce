@@ -35,6 +35,11 @@
     border-radius: 10px;
 }
 
+.list:focus{
+    background-color: #2F4F4F;
+    border-radius: 10px;
+}
+
 .link {
     text-decoration: none;
     color: #fff;

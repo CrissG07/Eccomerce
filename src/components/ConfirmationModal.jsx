@@ -1,4 +1,4 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
 import '../styles/ConfirmationModal.css'; // Estilos opcionales para el modal
 
 const ConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
