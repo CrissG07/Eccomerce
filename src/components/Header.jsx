@@ -17,6 +17,10 @@ function Header() {
           <li>
             <Link to="/products">Productos</Link>
           </li>
+
+          <li>
+          <Link to="/Detalles">DetallesProducto</Link>
+          </li>
           <li>
             
               <Link to="/cart">Carrito</Link>
@@ -24,7 +28,7 @@ function Header() {
                 <span className="cart-count">{cartItems.length}</span>
               )}
             
-          </li>
+          </li>  
         </ul>
       </nav>
     </header>
