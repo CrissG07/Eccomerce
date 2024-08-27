@@ -10,6 +10,7 @@ import '../styles/productDetail.css';
 const ProductList = ({ products }) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState('');
+    const [searchTerm, setSearchTerm] = useState(''); // Nuevo estado para la búsqueda
     const { addToCart } = useCart();
 
     const handleAddToCart = (product) => {
@@ -23,14 +24,22 @@ const ProductList = ({ products }) => {
     };
 
     const handleCategoryClick = (category, event) => {
-        event.preventDefault(); // Evita que la página se recargue
+        event.preventDefault();
         setSelectedCategory(category);
     };
+    
+    
 
-    const filteredProducts = selectedCategory
-    ? products.filter(product => product.categoria && product.categoria.toLowerCase() === selectedCategory.toLowerCase())
-    : products;
-
+    const filteredProducts = products.filter(product => {
+        const category = product.categoria || '';
+        const name = product.name || '';
+        const matchesCategory = selectedCategory ? category.toLowerCase() === selectedCategory.toLowerCase() : true;
+        const matchesSearch = name.toLowerCase().includes(searchTerm.toLowerCase());
+    
+        return matchesCategory && matchesSearch;
+    });
+    
+    
 
     return (
         <div>
@@ -70,6 +79,17 @@ const ProductList = ({ products }) => {
             </div>
 
             <h1>Productos</h1>
+
+            {/* Campo de búsqueda */}
+            <div className="search-bar">
+                <input
+                    type="text"
+                    placeholder="Buscar productos..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+            </div>
+
             <div className="product-list">
                 {filteredProducts.length > 0 ? (
                     filteredProducts.map((product) => (
@@ -81,7 +101,7 @@ const ProductList = ({ products }) => {
                         </div>
                     ))
                 ) : (
-                    <p>No hay productos disponibles en esta categoría.</p>
+                    <p>No hay productos disponibles en esta categoría o con esta búsqueda.</p>
                 )}
             </div>
 
