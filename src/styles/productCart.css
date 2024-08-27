@@ -1,11 +1,11 @@
 .product-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Espacio entre las tarjetas */
-    justify-content: space-between; /* Distribución uniforme */
+    justify-content: center; /* Centra los productos */
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    gap: 20px; /* Espacio entre las tarjetas */
 }
 
 .product-card {
@@ -18,7 +18,10 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0);
     text-align: center;
     transition: transform 0.3s ease-in-out;
+    margin: 0;
 }
+
+
 
 h1{
     text-align: center;
