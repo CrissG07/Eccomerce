@@ -2,10 +2,10 @@
 
 export const myProductList = [
 
-    { id: 1, name: ' Arroz Diana', price: 2500, categoria:'comida', image: 'https://tse4.mm.bing.net/th?id=OIP.r-CpC3TYYSlHCPTS-QRkhgHaHa&pid=Api&P=0&h=180' },
+    { id: 1, name: 'Arroz Diana', price: 2500, categoria:'comida', image: 'https://tse4.mm.bing.net/th?id=OIP.r-CpC3TYYSlHCPTS-QRkhgHaHa&pid=Api&P=0&h=180', isPopular: true},
     { id: 2, name: 'Leche', price: 3600,categoria:'comida', image: 'https://tse4.mm.bing.net/th?id=OIP.NDeCRNYDtVHhKATvSNRoswHaHa&pid=Api&P=0&h=180' },
     { id: 3, name: 'Panela', price: 5600,categoria:'comida', image: 'https://tse4.mm.bing.net/th?id=OIP.cbBHIn9cJ5YUUAosclOo3QHaFn&pid=Api&P=0&h=180' },
-    { id: 4, name: 'Azucar', price: 12100,categoria:'comida', image: 'https://tse1.mm.bing.net/th?id=OIP.tivZAqUuHSX8fqaA6x66XQHaHa&pid=Api&P=0&h=180' },
+    { id: 4, name: 'Azucar', price: 12100,categoria:'comida', image: 'https://tse1.mm.bing.net/th?id=OIP.tivZAqUuHSX8fqaA6x66XQHaHa&pid=Api&P=0&h=180', isPopular: true},
     { id: 5, name: 'Sal', price: 2500,categoria:'comida', image: 'https://tse3.mm.bing.net/th?id=OIP.2JdMKD-W6mHoRXSrxfKQLAHaHa&pid=Api&P=0&h=180' },
     { id: 6, name: 'Guayos', price: 130000,categoria:'moda', image: 'https://tse2.mm.bing.net/th?id=OIP.Ozulv6td4oxE3uBBnk_H6AHaHa&pid=Api&P=0&h=180'},
     { id: 7, name: 'Zapatos Nike', price: 500000,categoria:'moda¨', image: 'https://tse3.mm.bing.net/th?id=OIP.l5_8wLxvgwcGhr9yq6kPiwHaFB&pid=Api&P=0&h=180'},
