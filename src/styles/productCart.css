@@ -9,11 +9,11 @@
 }
 
 .product-card {
-    flex: 1 1 23%; /* Ajusta el tamaño para que quepan 4 por fila */
-    min-width: 220px; /* Ancho mínimo para que no se encojan demasiado */
-    max-width: 250px; /* Ancho máximo para un diseño más consistente */
+    flex: 1 1 23%;
+    min-width: 220px;
+    max-width: 250px;
     background-color: #fff;
-    padding: 15px;
+    padding: 10px; /* Reduce el padding */
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0);
     text-align: center;
@@ -34,11 +34,12 @@ h1{
 
 .card-img {
     width: 100%;
-    height: 150px; /* Ajuste de altura */
-    object-fit: cover; /* Asegura que la imagen se recorte adecuadamente */
+    height: 200px; /* Aumenta la altura de la imagen */
+    object-fit: contain; /* Cambia a 'contain' para que la imagen se ajuste sin recortarse */
     border-radius: 8px;
     margin-bottom: 10px;
 }
+
 
 .card-info {
     margin-top: 10px;
