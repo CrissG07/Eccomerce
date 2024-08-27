@@ -18,7 +18,6 @@ const ProductCard = ({ product }) => {
             <img src={product.image} alt="" className="card-img" />
             <div className="card-info">
                 <h3 className="text-title">{product.name}</h3>
-                <p className="text-body">{product.description}</p>
             </div>
             <div className="card-footer">
                 <span className="text-title">${product.price.toLocaleString('de-DE')}</span>

@@ -1,60 +1,95 @@
 /* eslint-disable react/prop-types */
-import { useCart } from '../context/CartContext'; // Importa el contexto del carrito
 import { useState } from 'react';
+import { useCart } from '../context/CartContext';
 import ProductCard from '../components/ProductCard';
 import ProductDetail from '../components/ProductDetail';
-import myProductList from '../productos'; // Importa la lista de productos
-import '../styles/productDetail.css'; // Asumo que el archivo de estilos se llama ProductList.css
+import myProductList from '../productos';
+import { Link } from 'react-router-dom'; // Importa Link de React Router
+import '../styles/productDetail.css';
 
 const ProductList = ({ products }) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
-    const { addToCart } = useCart(); // Obtén la función para agregar al carrito
+    const [selectedCategory, setSelectedCategory] = useState('');
+    const { addToCart } = useCart();
 
     const handleAddToCart = (product) => {
-        addToCart(product); // Agrega el producto al carrito
-        setSelectedProduct(product); // Muestra el detalle del producto seleccionado
+        addToCart(product);
+        setSelectedProduct(product);
     };
 
     const getRelatedProducts = (product) => {
-        // Filtrar productos relacionados por la misma categoría y excluir el producto actual
         const related = myProductList.filter(p => p.categoria === product.categoria && p.id !== product.id);
-        console.log('Productos relacionados:', related); // Verifica los productos relacionados en la consola
         return related;
     };
-    
+
+    const handleCategoryClick = (category, event) => {
+        event.preventDefault(); // Evita que la página se recargue
+        setSelectedCategory(category);
+    };
+
+    const filteredProducts = selectedCategory
+    ? products.filter(product => product.categoria && product.categoria.toLowerCase() === selectedCategory.toLowerCase())
+    : products;
+
 
     return (
         <div>
             <div className='section'>
                 <ul className='categoria'>
-                    <a className='link' href="#"><li className='list'>Moda</li></a>
-                    <a className='link' href="#"><li className='list'>Electrónicos</li></a>                   
-                    <a className='link' href="#"><li className='list'>Hogar</li></a>
-                    <a className='link' href="#"><li className='list'>Deportes</li></a>
-                    <a className='link' href="#"><li className='list'>Juguetes</li></a>
-                    <a className='link' href="#"><li className='list'>Belleza</li></a>
-                    <a className='link' href="#"><li className='list'>Herramientas</li></a>
-                    <a className='link' href="#"><li className='list'>Mascotas</li></a>
-                    <a className='link' href="#"><li className='list'>Comida</li></a>
-                    <a className='link' href="#"><li className='list'>Más</li></a>
+                    <li className='list'>
+                        <Link className='link' to="#" onClick={(e) => handleCategoryClick('moda', e)}>Moda</Link>
+                    </li>
+                    <li className='list'>
+                        <Link className='link' to="#" onClick={(e) => handleCategoryClick('electronicos', e)}>Electrónicos</Link>
+                    </li>
+                    <li className='list'>
+                        <Link className='link' to="#" onClick={(e) => handleCategoryClick('hogar', e)}>Hogar</Link>
+                    </li>
+                    <li className='list'>
+                        <Link className='link' to="#" onClick={(e) => handleCategoryClick('deportes', e)}>Deportes</Link>
+                    </li>
+                    <li className='list'>
+                        <Link className='link' to="#" onClick={(e) => handleCategoryClick('juguetes', e)}>Juguetes</Link>
+                    </li>
+                    <li className='list'>
+                        <Link className='link' to="#" onClick={(e) => handleCategoryClick('belleza', e)}>Belleza</Link>
+                    </li>
+                    <li className='list'>
+                        <Link className='link' to="#" onClick={(e) => handleCategoryClick('herramientas', e)}>Herramientas</Link>
+                    </li>
+                    <li className='list'>
+                        <Link className='link' to="#" onClick={(e) => handleCategoryClick('mascotas', e)}>Mascotas</Link>
+                    </li>
+                    <li className='list'>
+                        <Link className='link' to="#" onClick={(e) => handleCategoryClick('comida', e)}>Comida</Link>
+                    </li>
+                    <li className='list'>
+                        <Link className='link' to="#" onClick={(e) => handleCategoryClick('', e)}>Todas</Link>
+                    </li>
                 </ul>
             </div>
+
             <h1>Productos</h1>
             <div className="product-list">
-                {products.map((product) => (
-                    <div key={product.id}>
-                        <ProductCard 
-                            product={product} 
-                            onClick={() => handleAddToCart(product)} // Asegura que el clic se registre
-                        />
-                    </div>
-                ))}
+                {filteredProducts.length > 0 ? (
+                    filteredProducts.map((product) => (
+                        <div key={product.id}>
+                            <ProductCard 
+                                product={product} 
+                                onClick={() => handleAddToCart(product)} 
+                            />
+                        </div>
+                    ))
+                ) : (
+                    <p>No hay productos disponibles en esta categoría.</p>
+                )}
             </div>
+
             {selectedProduct && (
                 <div>
                     <ProductDetail 
                         product={selectedProduct} 
-                        relatedProducts={getRelatedProducts(selectedProduct)} // Pasa los productos relacionados
+                        relatedProducts={getRelatedProducts(selectedProduct)} 
                     />
                 </div>
             )}
