@@ -1,37 +1,43 @@
-/* eslint-disable react/prop-types */
-import { useCart } from '../context/CartContext';
-import { useState } from 'react';
-import ProductDetail from './ProductDetail';
-import '../styles/ProductCart.css';
-import 'boxicons/css/boxicons.min.css';
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import ProductDetail from '../components/ProductDetail'; // Asegúrate de que la ruta es correcta
+import myProductList from '../productos'; // Asegúrate de que la ruta es correcta
 
-const ProductCard = ({ product }) => {
-    const { addToCart } = useCart();
-    const [showDetails, setShowDetails] = useState(false);
+const DetallesProducto = () => {
+    const { id: productId } = useParams(); // Obtiene el ID del producto desde la URL
+    const [product, setProduct] = useState(null);
+    const [relatedProducts, setRelatedProducts] = useState([]);
 
-    const handleInfoClick = (event) => {
-        event.stopPropagation(); // Previene la propagación del evento de clic
-        setShowDetails(!showDetails);
-    };
+    useEffect(() => {
+
+        const parsedId = parseInt(productId);
+        
+
+        const foundProduct = myProductList.find(p => p.id === parsedId);
+        
+
+        if (foundProduct) {
+            setProduct(foundProduct);
+
+            // Encuentra productos relacionados
+            const related = myProductList.filter(p => p.categoria === foundProduct.categoria && p.id !== foundProduct.id);
+            setRelatedProducts(related);
+        } else {
+            console.error("Producto no encontrado con ID:", parsedId);
+        }
+    }, [productId]);
+
+    if (!product) return <p>Cargando...</p>;
 
     return (
-        <div className={`product-card ${product.isPopular ? 'popular-product' : ''}`}>
-            <img src={product.image} alt={product.name} className="card-img" />
-            <div className="card-info">
-                <h3 className="text-title">{product.name}</h3>
-            </div>
-            <div className="card-footer">
-                <span className="text-title">${product.price.toLocaleString('de-DE')}</span>
-                <div onClick={handleInfoClick} style={{ cursor: 'pointer' }} aria-label="Ver detalles" title="Ver detalles">
-                    <i className='bx bx-info-circle'></i>
-                </div>
-                <div className="card-button" onClick={() => addToCart(product)} aria-label="Agregar al carrito" title="Agregar al carrito">
-                    <i className='bx bx-cart'></i>
-                </div>
-            </div>
-            {showDetails && <ProductDetail product={product} />}
+        <div>
+            <ProductDetail 
+                product={product} 
+                relatedProducts={relatedProducts} 
+            />
+            
         </div>
     );
 };
 
-export default ProductCard;
+export default DetallesProducto;

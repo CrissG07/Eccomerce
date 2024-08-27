@@ -19,7 +19,7 @@ function Header() {
           </li>
 
           <li>
-          <Link to="/Detalles">DetallesProducto</Link>
+          <Link to="/Details">Detalles del Producto</Link>
           </li>
           <li>
             

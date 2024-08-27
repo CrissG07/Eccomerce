@@ -1,14 +1,22 @@
 /* eslint-disable react/prop-types */
 import '../styles/productDetail.css';
+import { useCart } from '../context/CartContext';
 
-const ProductDetail = ({ product, relatedProducts }) => {
+const ProductDetail = ({ product, relatedProducts = [] }) => {
+    const { addToCart } = useCart();
+    if (!product) {
+        return <p>Producto no encontrado</p>;
+    }
+
     return (
         <div className="product-detail">
+            <img src={product.image} alt={product.name} className="product-img" />
             <h2 className="title">{product.name}</h2>
             <p className="info">Descripción: {product.description}</p>
-            
+            <p className="price">Precio: ${product.price.toLocaleString()}</p>
+            <button onClick={() => addToCart(product)}>Añadir al carrito</button>
             {/* Sección de productos relacionados */}
-            {relatedProducts && relatedProducts.length > 0 && (
+            {relatedProducts.length > 0 && (
                 <div className="related-products">
                     <h3>Productos relacionados</h3>
                     <div className="related-products-list">
