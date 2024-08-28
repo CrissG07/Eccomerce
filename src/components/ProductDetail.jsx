@@ -18,7 +18,7 @@ const ProductDetail = ({ product, relatedProducts = [] }) => {
             {/* Sección de productos relacionados */}
             {relatedProducts.length > 0 && (
                 <div className="related-products">
-                    <h3>Productos relacionados</h3>
+                    <h3 className='parrafo'>Productos relacionados</h3>
                     <div className="related-products-list">
                         {relatedProducts.map((relatedProduct) => (
                             <div key={relatedProduct.id} className="related-product-card">
