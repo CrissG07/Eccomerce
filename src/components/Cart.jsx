@@ -16,8 +16,9 @@ export const Cart = () => {
         setIsModalOpen(false);
         setIsPurchaseConfirmed(true); // Marca la compra como confirmada
         alert("Compra realizada");
-        window.location.href = '/products'; // Redirige a la lista de productos
+        window.location.href = '/Eccomerce/products'; // Redirige a la lista de productos
     };
+    
     
     
 
@@ -62,7 +63,7 @@ export const Cart = () => {
                 onConfirm={handleConfirmPurchase} 
             />
 
-            {isPurchaseConfirmed && <p>Compra realizada</p>} {/* Mensaje opcional */}
+            {isPurchaseConfirmed}
         </div>
     );
 };
