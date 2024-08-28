@@ -14,7 +14,7 @@ const ProductDetail = ({ product, relatedProducts = [] }) => {
             <h2 className="title">{product.name}</h2>
             <p className="info">Descripción: {product.description}</p>
             <p className="price">Precio: ${product.price.toLocaleString()}</p>
-            <button className='boton' onClick={() => addToCart(product)}>Añadir al carrito</button>
+            <button className='btn' onClick={() => addToCart(product)}>Añadir al carrito</button>
             {/* Sección de productos relacionados */}
             {relatedProducts.length > 0 && (
                 <div className="related-products">

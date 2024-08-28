@@ -113,8 +113,7 @@
     color: #1E90FF;
 }
 
-/* From Uiverse.io by adamgiebl */ 
-button {
+.btn {
     background: #fbca1f;
     font-family: inherit;
     padding: 0.6em 1.3em;
@@ -126,7 +125,7 @@ button {
     cursor: pointer;
   }
   
-  button:hover {
+  .btn:hover {
     transform: translate(-0.05em, -0.05em);
     box-shadow: 0.15em 0.15em;
   }
