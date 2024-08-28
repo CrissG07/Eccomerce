@@ -24,7 +24,7 @@ export const CartProvider = ({ children }) => {
                 return [...prevItems, { ...product, quantity: 1 }];
             }
         });
-    };  
+    };
 
     // Función para eliminar un producto del carrito
     const removeFromCart = (productId) => {
@@ -55,6 +55,11 @@ export const CartProvider = ({ children }) => {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
     };
 
+    // Función para vaciar el carrito
+    const clearCart = () => {
+        setCartItems([]);
+    };
+
     return (
         <CartContext.Provider
             value={{
@@ -64,6 +69,7 @@ export const CartProvider = ({ children }) => {
                 updateCartItemQuantity,
                 getCartItemCount,
                 getCartTotal,
+                clearCart, // Agrega la función clearCart aquí
             }}
         >
             {children}

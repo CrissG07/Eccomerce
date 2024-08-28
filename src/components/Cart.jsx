@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'; // Asegúrate de importar useNav
 export const Cart = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isPurchaseConfirmed, setIsPurchaseConfirmed] = useState(false);
-    const { cartItems, removeFromCart, updateCartItemQuantity, getCartTotal } = useCart();
+    const { cartItems, removeFromCart, updateCartItemQuantity, getCartTotal, clearCart } = useCart();
     const navigate = useNavigate(); // Define navigate usando useNavigate
 
     const handleProceedToCheckout = () => {
@@ -17,6 +17,7 @@ export const Cart = () => {
     const handleConfirmPurchase = () => {
         setIsModalOpen(false);
         setIsPurchaseConfirmed(true); // Marca la compra como confirmada
+        clearCart(); // Limpia el carrito
         alert("Compra realizada");
         navigate('/products'); // Usa navigate para redirigir
     };
