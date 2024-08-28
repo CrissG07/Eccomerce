@@ -2,6 +2,7 @@
 import '../styles/productDetail.css';
 import { useCart } from '../context/CartContext';
 
+
 const ProductDetail = ({ product, relatedProducts = [] }) => {
     const { addToCart } = useCart();
     if (!product) {

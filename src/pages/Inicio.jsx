@@ -6,7 +6,7 @@ function Inicio() {
   return (
     <div className="inicio">
       <section className="hero">
-        <h1>Bienvenido al Eccomerce</h1>
+        <h1>Bienvenido a la tienda de Benito</h1>
         <p>Encuentra los mejores productos aquí</p>
         <Link className="cta-button" to="/products">Ver Productos</Link>
       </section>
