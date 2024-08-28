@@ -16,8 +16,9 @@ export const Cart = () => {
         setIsModalOpen(false);
         setIsPurchaseConfirmed(true); // Marca la compra como confirmada
         alert("Compra realizada");
-        window.location.href = '/products'; // Redirige a la lista de productos
+        window.location.href = 'https://crissg07.github.io/Eccomerce/products'; // Redirige a la lista de productos
     };
+    
 
     const handleCloseModal = () => {
         setIsModalOpen(false); // Cierra el modal sin confirmar la compra
