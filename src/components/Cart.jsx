@@ -16,7 +16,7 @@ export const Cart = () => {
         setIsModalOpen(false);
         setIsPurchaseConfirmed(true); // Marca la compra como confirmada
         alert("Compra realizada");
-        window.location.href = '/Eccomerce/products'; // Redirige a la lista de productos
+        window.location.href = '/products'; // Redirige a la lista de productos
     };
     
     
