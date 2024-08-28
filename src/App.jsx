@@ -11,12 +11,12 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Eccomerce/">
       <Header />
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/products" element={<Productos />} />
-        <Route path="/products/:id" element={<DetallesProducto />} /> {/* Usa ProductPage aquí */}
+        <Route path="/products/:id" element={<DetallesProducto />} />
         <Route path="/cart" element={<Carrito />} />
         <Route path="*" element={<NotFound />} /> {/* Ruta para 404 */}
       </Routes>

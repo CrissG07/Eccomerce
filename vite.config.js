@@ -3,6 +3,5 @@ import react from '@vitejs/plugin-react-swc';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/', // Configura esto según el nombre de tu repositorio
+  base: '/Eccomerce/', // Ajusta esto al nombre de tu repositorio
 });
-
