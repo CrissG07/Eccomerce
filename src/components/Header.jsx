@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
-import { useCart } from '../context/CartContext'; // Solo importa useCart
+import { useCart } from '../context/CartContext';
 
 function Header() {
-  const { cartItems } = useCart(); // Usa el hook personalizado
+  const { cartItems } = useCart();
 
   return (
     <header>
       <div className="logo">
-        <img src="../../public/vite.svg" alt="Logo de la tienda" />
+        <img src="/vite.svg" alt="Logo de la tienda" />
       </div>
       <nav>
         <ul>
@@ -18,13 +18,11 @@ function Header() {
             <Link to="/products">Productos</Link>
           </li>
           <li>
-            
-              <Link to="/cart">Carrito</Link>
-              {cartItems.length > 0 && (
-                <span className="cart-count">{cartItems.length}</span>
-              )}
-            
-          </li>  
+            <Link to="/cart">Carrito</Link>
+            {cartItems.length > 0 && (
+              <span className="cart-count">{cartItems.length}</span>
+            )}
+          </li>
         </ul>
       </nav>
     </header>

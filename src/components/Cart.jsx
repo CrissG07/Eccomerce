@@ -1,29 +1,29 @@
 import { useState } from 'react';
-import { useCart } from '../context/CartContext'; // Importa el contexto del carrito
+import { useCart } from '../context/CartContext';
 import '../styles/cart.css';
 import ConfirmationModal from '../components/ConfirmationModal';
-import { useNavigate } from 'react-router-dom'; // Asegúrate de importar useNavigate
+import { useNavigate } from 'react-router-dom';
 
 export const Cart = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isPurchaseConfirmed, setIsPurchaseConfirmed] = useState(false);
     const { cartItems, removeFromCart, updateCartItemQuantity, getCartTotal, clearCart } = useCart();
-    const navigate = useNavigate(); // Define navigate usando useNavigate
+    const navigate = useNavigate();
 
     const handleProceedToCheckout = () => {
-        setIsModalOpen(true); // Abre el modal cuando se hace clic en "Proceder a la Compra"
+        setIsModalOpen(true);
     };
 
     const handleConfirmPurchase = () => {
         setIsModalOpen(false);
-        setIsPurchaseConfirmed(true); // Marca la compra como confirmada
-        clearCart(); // Limpia el carrito
+        setIsPurchaseConfirmed(true);
         alert("Compra realizada");
-        navigate('/products'); // Usa navigate para redirigir
+        clearCart(); // Vacía el carrito
+        navigate('/products'); // Redirige a la lista de productos
     };
 
     const handleCloseModal = () => {
-        setIsModalOpen(false); // Cierra el modal sin confirmar la compra
+        setIsModalOpen(false);
     };
 
     return (
@@ -63,7 +63,7 @@ export const Cart = () => {
                 onConfirm={handleConfirmPurchase} 
             />
 
-            {isPurchaseConfirmed && <p>Compra realizada</p>} {/* Mensaje opcional */}
+            {isPurchaseConfirmed && <p>Compra realizada</p>}
         </div>
     );
 };
