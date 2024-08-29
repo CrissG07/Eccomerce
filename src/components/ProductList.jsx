@@ -11,7 +11,6 @@ const ProductList = ({ products }) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
-    const [isExpanded, setIsExpanded] = useState(false); // Estado para expandir la categoría
     const { addToCart } = useCart();
 
     const handleAddToCart = (product) => {
@@ -41,14 +40,7 @@ const ProductList = ({ products }) => {
         <div>
             {/* Solo mostrar las categorías en pantallas grandes */}
             <div className='section'>
-                <button 
-                    className="toggle-btn" 
-                    onClick={() => setIsExpanded(!isExpanded)}
-                    style={{ display: window.innerWidth > 768 ? 'block' : 'none' }} // Oculta el botón en pantallas pequeñas
-                >
-                    {isExpanded ? 'Cerrar' : 'Categorías'}
-                </button>
-                <ul className={`categoria ${isExpanded ? 'expanded' : ''}`} style={{ display: window.innerWidth <= 768 ? 'none' : 'flex' }}>
+                <ul className="categoria">
                     {['moda', 'electronicos', 'hogar', 'deportes', 'juguetes', 'belleza', 'herramientas', 'mascotas', 'comida', ''].map((category, index) => (
                         <li key={index} className='list'>
                             <Link className='link' to="#" onClick={(e) => handleCategoryClick(category, e)}>
