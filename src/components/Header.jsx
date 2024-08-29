@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import logo from '../../public/vite.svg';
 
 function Header() {
   const { cartItems } = useCart();
@@ -7,7 +8,7 @@ function Header() {
   return (
     <header>
       <div className="logo">
-        <img src="/vite.svg" alt="Logo de la tienda" />
+        <img src={logo} alt="Logo de la tienda" />
       </div>
       <nav>
         <ul>

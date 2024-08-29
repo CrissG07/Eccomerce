@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import logo from '../../public/vite.svg';
 
 
 function Footer() {
@@ -6,7 +7,7 @@ function Footer() {
     <footer>
       <div className="footer-content">
         <div className="footer-logo">
-          <img src="../../public/vite.svg" alt="Logo de la tienda" />
+        <img src={logo} alt="Logo de la tienda" />
         </div>
         <div className="footer-links">
           <div className="link-group">

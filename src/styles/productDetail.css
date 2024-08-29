@@ -6,7 +6,7 @@
     background-color: #1E90FF;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgb(0, 0, 0);
-    text-align: left; /* Alinea el contenido a la izquierda */
+    text-align: left; 
     align-items: center;
 }
 
@@ -16,18 +16,38 @@
     width: 100%;
     height: 40px;
     display: flex;
-    justify-content: center; /* Centra el contenido horizontalmente */
-    align-items: center; /* Centra el contenido verticalmente */
-    margin-bottom: 20px; /* Añade un margen inferior para separar la sección del contenido */
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 /* Estilo para la lista de categorías */
 .categoria {
     display: flex;
-    justify-content: center; /* Centra las categorías dentro de la sección */
+    justify-content: center;
     align-items: center;
     list-style-type: none;
-    gap: 10px; /* Añade un espacio entre cada categoría */
+    gap: 10px;
+}
+
+/* Estilo para los elementos de la lista de categorías */
+.list {
+    padding: 5px 10px;
+    cursor: pointer;
+    outline: none;
+}
+
+.list:hover,
+.list:focus {
+    background-color: #2F4F4F;
+    border-radius: 10px;
+}
+
+/* Estilo para los enlaces de categoría */
+.link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
 }
 
 /* Estilo para el campo de búsqueda */
@@ -44,39 +64,23 @@
     border: 1px solid #ccc;
 }
 
-/* Estilo para los elementos de la lista de categorías */
-.list {
-    padding: 5px 10px; /* Reduce el padding para ajustarlo mejor */
-    cursor: pointer; /* Añade un cursor para indicar que es interactivo */
-    outline: none; /* Elimina el contorno predeterminado del navegador */
-}
-
-/* Estilo para el estado hover y focus de los elementos de la lista de categorías */
-.list:hover,
-.list:focus {
-    background-color: #2F4F4F;
-    border-radius: 10px;
-}
-
-/* Estilo para los enlaces de categoría */
-.link {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold; /* Hace que el texto sea más visible */
-}
-
 /* Estilo para los títulos de productos */
 .title {
     text-align: center;
     color: #000;
-    margin-bottom: 10px; /* Espacio debajo del título */
+    margin-bottom: 10px;
 }
 
 /* Estilo para la información del producto */
 .info {
     color: #fff;
-    margin-top: 1; /* Alinea la descripción con el margen superior */
+    margin-top: 1;
     padding: 10px 30px;
+}
+
+.price {
+    padding: 10px 30px;
+    color: #2F4F4F;
 }
 
 /* Estilo para la lista de productos relacionados */
@@ -95,7 +99,7 @@
     border-radius: 10px;
     margin: 30px;
 }
-/* Estilo para las imágenes de productos relacionados */
+
 .related-product-img {
     width: 100%;
     height: 60%;
@@ -114,11 +118,7 @@
     color: #1E90FF;
 }
 
-.price {
-    padding: 10px 30px;
-    color: #2F4F4F;
-}
-
+/* Estilo para los botones */
 .btn {
     background: #fbca1f;
     font-family: inherit;
@@ -130,24 +130,27 @@
     box-shadow: 0.1em 0.1em;
     cursor: pointer;
     margin: 25px;
-  }
-  
-  .btn:hover {
+}
+
+.btn:hover {
     transform: translate(-0.05em, -0.05em);
     box-shadow: 0.15em 0.15em;
-  }
+}
 
-  .product-img {
+/* Estilo para la imagen del producto */
+.product-img {
     width: 200px;
-    margin-left: 37%;    
-  }
+    margin-left: 37%;
+}
 
-  .parrafo{
+/* Estilo para los párrafos */
+.parrafo {
     text-align: center;
     color: #2F4F4F;
-  }
+}
 
-  .card-button {
+/* Estilo para los botones en las tarjetas de producto */
+.card-button {
     border: 1px solid #000;
     display: flex;
     padding: 0.3em;
@@ -160,4 +163,123 @@
 .card-button:hover {
     background-color: #1E90FF;
     color: #fff;
+}
+
+/* Estilo para el botón de categoría */
+.category-toggle {
+    display: none;
+    background-color: #1E90FF;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px auto;
+}
+
+/* Estilos responsivos */
+
+/* Para tabletas (768px - 1024px) */
+@media (max-width: 1024px) {
+    .product-detail {
+        width: 80%;
+        padding: 15px;
+    }
+
+    .section {
+        height: 35px;
+        margin-bottom: 15px;
+    }
+
+    .categoria {
+        gap: 5px;
+    }
+
+    .search-bar input {
+        max-width: 300px;
+    }
+
+    .related-products-list {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .related-product-card {
+        width: 80%;
+        margin: 15px;
+    }
+
+    .product-img {
+        width: 150px;
+        margin-left: 41%;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 0.5em 1em;
+    }
+}
+
+/* Estilos específicos para dispositivos móviles */
+@media (max-width: 768px) {
+    /* Estilo para la lista de categorías */
+    .categoria {
+        display: none; /* Oculta la lista de categorías en dispositivos móviles */
+    }
+
+    /* Estilo para el botón de expansión */
+    .toggle-btn {
+        display: none; /* Oculta el botón de expansión en dispositivos móviles */
+    }
+
+    /* Estilo para la sección de categorías */
+    .section {
+        height: 30px;
+        margin-bottom: 10px;
+    }
+
+    .search-bar input {
+        max-width: 100%;
+        width: 80%;
+    }
+
+    .related-products-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .related-product-card {
+        width: 100%;
+        margin: 10px;
+    }
+
+    .product-img {
+        width: 100px;
+        margin-left: 35%;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 0.4em 0.8em;
+        margin: 20px;
+    }
+
+    .parrafo {
+        font-size: 14px;
+    }
+
+    .related-product-img {
+        width: 60%;
+        height: 30%;
+        border-radius: 8px;
+    }
+
+    .related-product-card {
+        width: 250px;
+        text-align: center;
+        background-color: #fff;
+        color: #000;
+        border-radius: 10px;
+        margin: 30px;
+    }
 }
